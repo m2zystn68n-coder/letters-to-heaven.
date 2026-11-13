@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letters to Heaven ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #edf2f7;
+  color: #52647b;
+  font-family: 'Cormorant Garamond', serif;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 55px 20px 35px;
+  background: linear-gradient(160deg, #dceafa, #f8f5f0);
+}
+
+header .small {
+  letter-spacing: 5px;
+  font-size: 12px;
+  color: #879bb4;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(36px, 8vw, 58px);
+  font-weight: 500;
+  margin: 12px 0;
+  color: #667f9e;
+}
+
+header p {
+  font-size: 19px;
+  color: #8999ad;
+}
+
+main {
+  max-width: 950px;
+  margin: 35px auto;
+  padding: 0 18px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 27px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.editor {
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 30px #899bb41c;
+}
+
+label {
+  display: block;
+  margin: 17px 0 8px;
+  font-size: 18px;
+}
+
+input, textarea, select {
+  width: 100%;
+  border: 1px solid #dce4ed;
+  background: #fafbfd;
+  padding: 13px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 17px;
+  color: #536981;
+  outline: none;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #a5bbd6;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 22px;
+  font-family: inherit;
+  font-size: 18px;
+  transition: .2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: #829bb9;
+  color: white;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.secondary {
+  background: #edf2f8;
+  color: #687f9b;
+  margin-top: 12px;
+}
+
+.preview-section {
+  margin-top: 45px;
+  text-align: center;
+}
+
+.paper {
+  background: #fffdf5;
+  color: #5d554d;
+  width: 100%;
+  max-width: 570px;
+  min-height: 390px;
+  margin: 20px auto;
+  padding: 35px 30px;
+  text-align: left;
+  box-shadow: 0 12px 35px #52647b24;
+  position: relative;
+  transition: .4s;
+}
+
+.paper.cream { background: #fff8e9; }
+.paper.rose { background: #fff0f2; }
+.paper.blue { background: #edf5ff; }
+.paper.lavender { background: #f5f0ff; }
+
+.paper h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.letter-text {
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  min-height: 180px;
+}
+
+.signature {
+  font-family: 'Caveat', cursive;
+  font-size: 26px;
+  text-align: right;
+  margin-top: 25px;
+}
+
+.stamp {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  font-size: 35px;
+  border: 2px dashed #c9aeb0;
+  padding: 5px;
+  transform: rotate(9deg);
+}
+
+.envelope {
+  max-width: 400px;
+  height: 230px;
+  margin: 25px auto;
+  position: relative;
+  background: #dce7f2;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px #52647b24;
+  transition: .4s;
+}
+
+.envelope.cream { background: #eee1c9; }
+.envelope.rose { background: #f0d8df; }
+.envelope.lavender { background: #e5dff1; }
+
+.envelope:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, transparent 49.5%, #ffffff60 50%, transparent 51%);
+}
+
+.envelope:after {
+  content: "♡";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: #fff9;
+}
+
+.envelope.open {
+  transform: rotateX(8deg);
+  box-shadow: 0 18px 35px #52647b35;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  color: #99a7b7;
+  font-size: 17px;
+}
+
+@media(max-width: 550px) {
+  .options { grid-template-columns: 1fr; }
+  .paper { padding: 30px 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="small">A little place for your thoughts</div>
+  <h1>Letters to Heaven ♡</h1>
+  <p>Some feelings deserve to become letters.</p>
+</header>
+
+<main>
+
+  <h2 class="section-title">Write your letter</h2>
+
+  <div class="editor">
+
+    <label for="recipient">To whom?</label>
+    <input id="recipient" placeholder="Dear someone...">
+
+    <label for="message">Your letter</label>
+    <textarea id="message" placeholder="Write everything you want to say..."></textarea>
+
+    <label for="signature">From</label>
+    <input id="signature" placeholder="With love...">
+
+    <div class="options">
+
+      <div>
+        <label for="paperChoice">Choose your paper</label>
+        <select id="paperChoice">
+          <option value="cream">Vintage cream</option>
+          <option value="white">Pure white</option>
+          <option value="rose">Soft rose</option>
+          <option value="blue">Sky blue</option>
+          <option value="lavender">Lavender dream</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="envelopeChoice">Choose envelope</label>
+        <select id="envelopeChoice">
+          <option value="blue">Cloud blue</option>
+          <option value="cream">Vintage beige</option>
+          <option value="rose">Rose pink</option>
+          <option value="lavender">Lavender</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="stampChoice">Choose a stamp</label>
+        <select id="stampChoice">
+          <option value="♡">♡ Heart</option>
+          <option value="✉">✉ Letter</option>
+          <option value="☁">☁ Cloud</option>
+          <option value="☆">☆ Star</option>
+          <option value="🕊">🕊 Dove</option>
+          <option value="🌷">🌷 Flower</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button class="primary" onclick="updateLetter()">
+      Create my letter ♡
+    </button>
+
+  </div>
+
+  <section class="preview-section">
+
+    <h2 class="section-title">Your letter</h2>
+
+    <div class="paper" id="paper">
+      <div class="stamp" id="stamp">♡</div>
+      <h3 id="toPreview">Dear someone...</h3>
+      <div class="letter-text" id="textPreview">
+        Your words will appear here...
+      </div>
+      <div class="signature" id="fromPreview">
+        With love...
+      </div>
+    </div>
+
+    <h2 class="section-title">Your envelope</h2>
+
+    <div class="envelope" id="envelope"></div>
+
+    <button class="secondary" onclick="toggleEnvelope()">
+      Fold / unfold envelope ✉
+    </button>
+
+    <button class="secondary" onclick="saveLetter()">
+      Save my letter
+    </button>
+
+  </section>
+
+</main>
+
+<footer>
+  Made with love, somewhere between earth and heaven ♡
+</footer>
+
+<script>
+function updateLetter() {
+  const recipient = document.getElementById('recipient').value;
+  const message = document.getElementById('message').value;
+  const signature = document.getElementById('signature').value;
+
+  document.getElementById('toPreview').textContent =
+    recipient || 'Dear someone...';
+
+  document.getElementById('textPreview').textContent =
+    message || 'Your words will appear here...';
+
+  document.getElementById('fromPreview').textContent =
+    signature || 'With love...';
+
+  document.getElementById('stamp').textContent =
+    document.getElementById('stampChoice').value;
+
+  const paper = document.getElementById('paper');
+  const envelope = document.getElementById('envelope');
+
+  paper.className = 'paper';
+  envelope.className = 'envelope';
+
+  const paperColor = document.getElementById('paperChoice').value;
+  const envelopeColor = document.getElementById('envelopeChoice').value;
+
+  if (paperColor !== 'white') paper.classList.add(paperColor);
+  envelope.classList.add(envelopeColor);
+}
+
+function toggleEnvelope() {
+  document.getElementById('envelope').classList.toggle('open');
+}
+
+function saveLetter() {
+  const recipient = document.getElementById('recipient').value;
+  const message = document.getElementById('message').value;
+  const signature = document.getElementById('signature').value;
+
+  if (!message.trim()) {
+    alert('Write something in your letter first ♡');
+    return;
+  }
+
+  const content =
+    (recipient || 'Dear someone...') + '\n\n' +
+    message + '\n\n' +
+    (signature || 'With love...');
+
+  const blob = new Blob([content], {type: 'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+
+  link.href = url;
+  link.download = 'my-letter.txt';
+  link.click();
+
+  URL.revokeObjectURL(url);
+}
+
+</script>
+
+</body>
+</html>
